@@ -1,0 +1,29 @@
+{
+  "images": [
+    {
+      "id": 1,
+      "title": "Pink Smoothie",
+      "Description": "Made with love for our lovely customers, Because we care for you",
+      "price": "500 franc CFA",
+      "likes": 6,
+      "image": "./images/t1.jpg"
+    }
+  ],
+  "comments": [
+    {
+      "id":1,
+      "ImageId":1,
+      "content":"Sweet drink"
+    },
+    {
+      "id":2,
+      "ImageId":1,
+      "content":"I don't like it"
+    },
+    {
+      "id":3,
+      "ImageId":1,
+      "content":"Sweet drink"
+    }
+  ]
+}

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Food App</title>
+</head>
+<nav class="navbar">
+    <div class="logo">
+        ME
+    </div>
+    <ul class="nav-links">
+        <!-- USING CHECKBOX HACK -->
+        <input type="checkbox" id="checkbox_toggle" />
+        <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+        <!--Navigation Menu-->
+        <div class="menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="aboutx.html">About</a></li>
+            <li><a href="#">Our Top Pics</a></li>
+            <li class="categories"><a href="#">Categories</a>
+                <ul class="dropdown">
+                    <li><a href="/">1</a></li>
+                    <li><a href="/">2</a></li>
+                    <li><a href="/">3</a></li>
+                    <li><a href="/">4</a></li>
+                </ul>
+            </li>
+            <li><a href="FindUs.html">Find Us</a></li>
+            <li class="btn">
+                <a href="#" class="button" type="submit">Login</a>
+            </li>
+            <li>
+                <!--                   <form class="d-flex">-->
+                <!--                       <input class="form-control" type="search" placeholder="search" aria-label="search">-->
+                <!--                       <button class="button" type="submit">Search</button>-->
+                <!--                   </form>-->
+            </li>
+        </div>
+    </ul>
+</nav>
+
+<!--<html>-->
+<!--<head>-->
+<!--    <meta name="viewport" content="initial‑scale=1.0, user‑scalable=no" />-->
+<!--    <meta http‑equiv="content‑type" content="text/html; charset=UTF‑8" />-->
+<!--    <title>Track me!</title>-->
+
+<!--    <script-->
+<!--            type="text/javascript"-->
+<!--            src="https://maps.google.com/maps/api/js?-->
+<!--     sensor=true&key=<APP_ID>"-->
+<!--    ></script>-->
+
+<!--    <script type="text/javascript">-->
+<!--        let trackerId = 0;-->
+<!--        let geocoder;-->
+<!--        let map;-->
+<!--        let userMarker;-->
+<!--        const initialize = () => {-->
+<!--            geocoder = new google.maps.Geocoder();-->
+
+<!--            navigator.geolocation.getCurrentPosition(function(pos) {-->
+<!--                const latLng = new google.maps.LatLng(-->
+<!--                    pos.coords.latitude,-->
+<!--                    pos.coords.longitude-->
+<!--                );-->
+<!--                const options = {-->
+<!--                    zoom: 12,-->
+<!--                    center: latLng,-->
+<!--                    mapTypeId: google.maps.MapTypeId.ROADMAP-->
+<!--                };-->
+<!--                map = new google.maps.Map(-->
+<!--                    document.getElementById("map_canvas"),-->
+<!--                    options-->
+<!--                );-->
+<!--                userMarker = new google.maps.Marker({-->
+<!--                    position: latLng,-->
+<!--                    map: map,-->
+<!--                    title: "You!"-->
+<!--                });-->
+<!--                showLocation(pos);-->
+<!--            });-->
+<!--            trackerId = navigator.geolocation.watchPosition(function(pos) {-->
+<!--                var latLng = new google.maps.LatLng(-->
+<!--                    pos.coords.latitude,-->
+<!--                    pos.coords.longitude-->
+<!--                );-->
+<!--                map.setCenter(latLng);-->
+<!--                userMarker.setPosition(latLng);-->
+<!--                showLocation(pos);-->
+<!--            });-->
+<!--        };-->
+
+<!--        const showLocation = pos => {-->
+<!--            const latLng = new google.maps.LatLng(-->
+<!--                pos.coords.latitude,-->
+<!--                pos.coords.longitude-->
+<!--            );-->
+<!--            if (geocoder) {-->
+<!--                geocoder.geocode({ latLng: latLng }, function(results, status) {-->
+<!--                    if (status == google.maps.GeocoderStatus.OK) {-->
+<!--                        if (results[1]) {-->
+<!--                            $("location").innerHTML = results[1].formatted_address;-->
+<!--                        }-->
+<!--                    }-->
+<!--                });-->
+<!--            }-->
+<!--        };-->
+
+<!--        const stopTracking = () => {-->
+<!--            if (trackerId) {-->
+<!--                navigator.geolocation.clearWatch(trackerId);-->
+<!--            }-->
+<!--        };-->
+<!--    </script>-->
+<!--</head>-->
+<!--<body style="margin:0px; padding:0px;" onload="initialize()">-->
+<!--<div style="margin:25px;">-->
+<!--    <input type="button" value="Stop tracking me!" onclick="stopTracking()" />-->
+<!--</div>-->
+<!--<div id="map_canvas" style="width:100%; height:90%; float:left;"></div>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+    <title>Local Weather</title>
+    <script type="text/javascript">
+        const initialize = () => {
+            navigator.geolocation.getCurrentPosition(
+                getWeatherInfoByLocation,
+                handleError
+            );
+        };
+
+        const handleError = error => {
+            alert(`Unable to retrieve location: ${error.message}`);
+        };
+
+        const getWeatherInfoByLocation = position => {
+            const xhr = new XMLHttpRequest();
+            const lat = position.coords.latitude;
+            const long = position.coords.longitude;
+            const url = `https://api.openweathermap.org/data/2.5/weather?APPID=<APP_ID>⪫=${lat}&lon=${long}`;
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4) {
+                    showTemperature(JSON.parse(xhr.response));
+                }
+            };
+
+            xhr.open("get", url, true);
+            xhr.send();
+        };
+
+        const showTemperature = weatherInfo => {
+            const location = weatherInfo.name;
+            const temperature = Math.round(
+                ((weatherInfo.main.temp - 273.15) * 9) / 5 + 32
+            );
+            document.getElementById(
+                "weatherInfo"
+            ).innerHTML = `Current temperature in ${location} is ${temperature}°Fahrenheit `;
+        };
+    </script>
+</head>
+<body onload="initialize()">
+<div>
+    <h1 id="weatherInfo">Retriving local weather information...</h1>
+</div>
+</body>
+</html>

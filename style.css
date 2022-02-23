@@ -1,0 +1,426 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: cursive;
+    background-color: #fff;
+}
+a
+{
+    text-decoration: none;
+}
+li {
+    list-style: none;
+}
+/* styling the navbar*/
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 16px;
+    background-color: #8c8c9c;
+    color: #fff;
+}
+.nav-links a{
+    color: black;
+}
+/* LOGO */
+.logo {
+    font-size: 32px;
+}
+/*menu*/
+.menu{
+    display: flex;
+    gap: .8rem;
+    font-size: 15px;
+}
+.menu li:hover {
+    background-color: #4c9e9e;
+    border-radius: 5px;
+    transition: 0.3s ease;
+    transform: skewY(2deg) skewX(2deg);
+}
+.menu li {
+    padding: 5px 14px;
+}
+/*dropdown*/
+.categories{
+    position: relative;
+}
+.dropdown {
+    background-color: rgb(224, 216, 216);
+    padding: 1em 0;
+    position: absolute;
+    display: none;
+    border-radius: 8px;
+    top: 35px;
+}
+.dropdown li {
+    padding: 0.5em 1em;
+    width: 8em;
+    text-align: center;
+}
+.dropdown li:hover {
+    background-color: #9cbdbd;
+}
+.categories:hover .dropdown {
+    display: block;
+}
+input[type=checkbox]{
+    display: none;
+}
+/*HAMBURGER MENU*/
+.hamburger {
+    display: none;
+    font-size: 24px;
+    user-select: none;
+}
+
+/* APPLYING MEDIA QUERIES */
+@media (max-width: 768px) {
+    .menu {
+        display:none;
+        position: absolute;
+        background-color: #e9efef;
+        right: 0;
+        left: 0;
+        text-align: center;
+        padding: 16px 0;
+    }
+    .menu li:hover {
+        display: inline-block;
+        background-color:#fff;
+        transition: 0.3s ease;
+    }
+    .menu li + li {
+        margin-top: 12px;
+    }
+    input[type=checkbox]:checked ~ .menu{
+        display: block;
+        animation-name: moveDown;
+        animation-duration: 0.1s;
+        animation-timing-function: ease-out;
+    }
+    .hamburger {
+        display: block;
+    }
+    .dropdown {
+        left: 50%;
+        top: 30px;
+        transform: translateX(35%);
+    }
+    .dropdown li:hover {
+        background-color: #fff;
+    }
+}
+.btn{
+    width: 100px;
+    height: 30px;
+    border-radius: 0.5rem;
+    border-color: black;
+    padding-left: 5rem;
+}
+.button{
+  background-color: #e7e63f;
+    padding: 5px 15px;
+    border-radius: 0.2rem;
+
+}
+@keyframes moveDown {
+ 0%{
+     opacity: 0;
+     transform: translatex(-100px);
+ }
+    80%{
+        transform: translateX(10px);
+    }
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+span{
+    color: #148714;
+}
+.red{
+    color: #e03131;
+}
+.text-box{
+    padding: 3.5rem;
+}
+.orderNow{
+    background-color:  #199319;
+    color: white;
+    border-radius: 0.2rem;
+    padding: 15px 25px;
+    text-decoration: none;
+}
+.orderNow:hover{
+    background-color:  #e7e63f;
+}
+.image-part {
+    border-radius: 50%;
+    padding: 8rem;
+}
+.display{
+  display: flex;
+}
+.text-part{
+ flex: 0 0 50%;
+}
+.image-part{
+  flex:1;
+}
+.display_2{
+    display: flex;
+    padding-left: 9rem;
+}
+/*.background {*/
+/*    background-color: green;*/
+/*    height: 150px;*/
+/*    padding: 10px;*/
+/*}*/
+
+/*.card {*/
+/*    margin-right: auto;*/
+/*    !*margin-left: auto;*!*/
+/*    width: 250px;*/
+/*    box-shadow: 0 15px 25px rgba(129, 124, 124, 0.2);*/
+/*    height: 300px;*/
+/*    border-radius: 5px;*/
+/*    backdrop-filter: blur(14px);*/
+/*    background-color: rgba(255, 255, 255, 0.2);*/
+/*    padding: 10px;*/
+/*    text-align: center;*/
+/*}*/
+/*.card img {*/
+/*    height: 45%;*/
+/*    border-radius: 2rem;*/
+/*}*/
+.food-header{
+    text-align: center;
+    margin: 1.8rem;
+}
+h5{
+    font-size: 15px;
+    color: lightgray;
+    margin: 1rem;
+}
+
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: space-around;
+}
+.card {
+    flex: 0 0 200px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
+    width: 500px;
+    border-radius: 2rem;
+}
+.card img {
+    max-width: 100%;
+    border-radius: 2rem;
+}
+.card .text {
+    padding: 0 20px 20px;
+}
+.card .text > button {
+    /*background: gray;*/
+    background-color: white;
+    border: 0;
+    color: black;
+    padding: 10px;
+    /*width: 100%;*/
+}
+
+
+
+/*@keyframes mymove {*/
+/*    0%   {top: 0px;}*/
+/*    25%  {top: 200px;}*/
+/*    50%  {top: 100px;}*/
+/*    75%  {top: 200px;}*/
+/*    100% {top: 0px;}*/
+/*}*/
+#chat .entete{
+    margin-bottom:5px;
+}
+#chat .message{
+    padding:20px;
+    color:#fff;
+    line-height:25px;
+    max-width:90%;
+    display:inline-block;
+    text-align:left;
+    border-radius:5px;
+}
+#chat .me{
+    text-align:right;
+}
+#chat .you .message{
+    background-color: #d762b8;
+}
+/*#chat .me .message{*/
+/*    background-color:#6fbced;*/
+/*}*/
+#chat .triangle{
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 10px 10px 10px;
+}
+#chat .you .triangle{
+    border-color: transparent transparent #d762b8 transparent;
+    margin-left:5px;
+}
+#chat .me .triangle{
+    border-color: transparent transparent #6fbced transparent;
+    margin-left:375px;
+}
+.about{
+    display: grid;
+}
+.abm{
+    width: 100%;
+    border-radius: 2rem;
+}
+
+/* (A) GRID CONTAINER */
+#grid-col {
+    display: grid;
+    grid-template-columns: 50% 40%;
+
+    /* WE CAN ALSO SPECIFY EXACT PIXELS, PERCENTAGE, REPEAT
+    grid-template-columns: 200px 40%;
+    grid-template-columns: repeat(2, 250px); */
+}
+
+/* (B) GRID CELLS */
+div.cell {
+    /*background: LightBlue;*/
+    /*border: 1px solid Blue;*/
+    padding: 5rem;
+}
+
+/* (C) RESPONSIVE - 1 COLUMN ON SMALL SCREENS */
+@media screen and (max-width: 640px) {
+    #grid-col { grid-template-columns: 100%; }
+}
+.t{
+    margin: 1rem;
+}
+.about-img{
+    width: 40%;
+}
+.about-img1{
+    width: 55%;
+}
+.about-img2{
+    width: 78%;
+}
+.butn{
+    background: red;
+    border: 0;
+    color: white;
+    padding: 10px;
+    width: 20%;
+    align-items: center;
+    margin-left: 3rem;
+    border-radius: 0.5rem;
+}
+h4{
+    text-align: center;
+}
+
+
+/* (A) SET CONTAINER TO GRID */
+.sold-food {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20%;
+
+    /* SET SPACING IN-BETWEEN CELLS */
+    grid-column-gap: 13px;
+    /*padding-left: 6rem;*/
+    /*margin-left: 6rem;*/
+    justify-content: space-around;
+    /*grid-row-gap: 30px;*/
+
+    /* OR SIMPLY SET A UNIFORM SPACING
+    grid-gap: 20px; */
+}
+/*.comment{*/
+/*    margin-bottom: 0.2rem;*/
+/*}*/
+
+/* (B) GRID CELLS */
+/*div.cells {*/
+/*    background: LightBlue;*/
+/*    border: 1px solid Blue;*/
+/*    padding: 10px;*/
+/*}*/
+/*popover code*/
+/* Popup box BEGIN */
+.hover_bkgr_fricc{
+    background:rgba(0,0,0,.4);
+    cursor:pointer;
+    display:none;
+    height:100%;
+    position:fixed;
+    text-align:center;
+    top:0;
+    width:100%;
+    z-index:10000;
+}
+.hover_bkgr_fricc .helper{
+    display:inline-block;
+    height:100%;
+    vertical-align:middle;
+}
+.hover_bkgr_fricc > div {
+    background-color: #fff;
+    box-shadow: 10px 10px 60px #555;
+    display: inline-block;
+    height: auto;
+    max-width: 551px;
+    min-height: 100px;
+    vertical-align: middle;
+    width: 60%;
+    position: relative;
+    border-radius: 8px;
+    padding: 15px 5%;
+}
+.popupCloseButton {
+    background-color: #fff;
+    border: 3px solid #999;
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-block;
+    font-family: arial;
+    font-weight: bold;
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 25px;
+    line-height: 30px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+.popupCloseButton:hover {
+    background-color: #ccc;
+}
+.trigger_popup_fricc {
+    cursor: pointer;
+    font-size: 20px;
+    margin: 20px;
+    display: inline-block;
+    font-weight: bold;
+}
+/* Popup box BEGIN */
