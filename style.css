@@ -20,8 +20,10 @@ li {
     align-items: center;
     justify-content: space-around;
     padding: 16px;
-    background-color: #8c8c9c;
-    color: #fff;
+    background-color: #fff;
+    /* background-color: #8c8c9c; */
+    /* color: #fff; */
+    width: 100%;
 }
 .nav-links a{
     color: black;
@@ -29,6 +31,7 @@ li {
 /* LOGO */
 .logo {
     font-size: 32px;
+    color: black;
 }
 /*menu*/
 .menu{
@@ -88,6 +91,8 @@ input[type=checkbox]{
         left: 0;
         text-align: center;
         padding: 16px 0;
+
+
     }
     .menu li:hover {
         display: inline-block;
@@ -131,7 +136,7 @@ input[type=checkbox]{
 @keyframes moveDown {
  0%{
      opacity: 0;
-     transform: translatex(-100px);
+     transform: translateX(-100px);
  }
     80%{
         transform: translateX(10px);
@@ -156,6 +161,7 @@ span{
     border-radius: 0.2rem;
     padding: 15px 25px;
     text-decoration: none;
+    display: flex;
 }
 .orderNow:hover{
     background-color:  #e7e63f;
@@ -199,6 +205,14 @@ span{
 /*    height: 45%;*/
 /*    border-radius: 2rem;*/
 /*}*/
+main{
+    margin: 3rem;
+    animation-name: moveDownCards;
+    animation-duration: 3s;
+    animation-timing-function: ease-out;
+    animation-iteration-count: 3;
+    animation-delay: 2s;
+}
 .food-header{
     text-align: center;
     margin: 1.8rem;
@@ -214,19 +228,34 @@ h5{
     display: flex;
     flex-wrap: wrap;
     align-items: stretch;
+    /* align-items: flex-start; */
     justify-content: space-around;
+    /* animation: moveDownCards 2s ease-out delay 1; */
 }
+@keyframes moveDownCards {
+    0%{
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+       80%{
+           transform: translateX(10px);
+       }
+       100%{
+           opacity: 1;
+           transform: translate(0);
+       }
+   }
 .card {
     flex: 0 0 200px;
-    margin: 10px;
-    border: 1px solid #ccc;
-    box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
+    /* margin: 10px; */
+    /* border: 1px solid #ccc; */
+    /* box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3); */
     width: 500px;
-    border-radius: 2rem;
+    /* border-radius: 2rem; */
 }
 .card img {
     max-width: 100%;
-    border-radius: 2rem;
+    border-radius: 1rem;
 }
 .card .text {
     padding: 0 20px 20px;
@@ -254,36 +283,36 @@ h5{
 }
 #chat .message{
     padding:20px;
-    color:#fff;
+    color:black;
     line-height:25px;
     max-width:90%;
     display:inline-block;
     text-align:left;
-    border-radius:5px;
+    border-radius:8px;
 }
 #chat .me{
     text-align:right;
 }
 #chat .you .message{
-    background-color: #d762b8;
+    background-color: #FFC0CB;
 }
 /*#chat .me .message{*/
 /*    background-color:#6fbced;*/
 /*}*/
-#chat .triangle{
+/* #chat .triangle{
     width: 0;
     height: 0;
     border-style: solid;
     border-width: 0 10px 10px 10px;
-}
-#chat .you .triangle{
+} */
+/* #chat .you .triangle{
     border-color: transparent transparent #d762b8 transparent;
     margin-left:5px;
-}
-#chat .me .triangle{
+} */
+/* #chat .me .triangle{
     border-color: transparent transparent #6fbced transparent;
     margin-left:375px;
-}
+} */
 .about{
     display: grid;
 }
@@ -365,62 +394,21 @@ h4{
 /*    border: 1px solid Blue;*/
 /*    padding: 10px;*/
 /*}*/
-/*popover code*/
-/* Popup box BEGIN */
-.hover_bkgr_fricc{
-    background:rgba(0,0,0,.4);
-    cursor:pointer;
-    display:none;
-    height:100%;
-    position:fixed;
-    text-align:center;
-    top:0;
-    width:100%;
-    z-index:10000;
+.food-image{
+    margin: 1.5rem;
 }
-.hover_bkgr_fricc .helper{
-    display:inline-block;
-    height:100%;
-    vertical-align:middle;
+.about{
+    animation-name: moveDownCards;
+    animation-duration: 3s;
+    animation-timing-function: ease-out;
+    animation-iteration-count: 3;
 }
-.hover_bkgr_fricc > div {
-    background-color: #fff;
-    box-shadow: 10px 10px 60px #555;
-    display: inline-block;
-    height: auto;
-    max-width: 551px;
-    min-height: 100px;
-    vertical-align: middle;
-    width: 60%;
-    position: relative;
-    border-radius: 8px;
-    padding: 15px 5%;
-}
-.popupCloseButton {
-    background-color: #fff;
-    border: 3px solid #999;
-    border-radius: 50px;
-    cursor: pointer;
-    display: inline-block;
-    font-family: arial;
-    font-weight: bold;
-    position: absolute;
-    top: -20px;
-    right: -20px;
-    font-size: 25px;
-    line-height: 30px;
-    width: 30px;
-    height: 30px;
-    text-align: center;
-}
-.popupCloseButton:hover {
-    background-color: #ccc;
-}
-.trigger_popup_fricc {
-    cursor: pointer;
-    font-size: 20px;
-    margin: 20px;
-    display: inline-block;
-    font-weight: bold;
-}
-/* Popup box BEGIN */
+.dark-mode {
+    background-color: black;
+    color: white;
+  }
+  button{
+      background-color:transparent;
+      color: black;
+      border: none;
+  }
